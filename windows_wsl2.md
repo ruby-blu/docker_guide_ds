@@ -1,6 +1,9 @@
 # Docker a Windows Subsystem for Linux (WSL-2)
 
-Windows 10 users will need to install [WSL-2](https://docs.microsoft.com/en-us/windows/wsl/install-win10). You can also find guidance from [Docker on the WSL-2 backend](https://docs.docker.com/docker-for-windows/wsl/) and a [blog post from Docker on the transition to WSL-2](https://www.docker.com/blog/docker-hearts-wsl-2/).  
+Windows users will need to install [Windows subsystem for Linux  (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install). You can also find guidance from [Docker on the WSL-2 backend](https://docs.docker.com/docker-for-windows/wsl/).
+
+- [Watch: Get started with Docker containers on WSL | Microsoft Learn](https://www.youtube.com/watch?v=rATNU0Fr8zs&t=231s)
+- [Watch: Changing the Amount of CPU and Ram (WSL)](https://www.youtube.com/watch?v=exUMlNshRAs)
 
 ## Memory settings
 

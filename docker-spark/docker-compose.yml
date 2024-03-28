@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   db:
-    container_name: db_451
+    container_name: db_postgres
     image: postgres
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
@@ -16,7 +16,7 @@ services:
       - n451
 
   spark:
-    container_name: spark_451
+    container_name: spark_notebook
     image: jupyter/all-spark-notebook
     depends_on:
       - db
@@ -29,11 +29,13 @@ services:
       - ./scratch:/home/jovyan/scratch
       - ./work:/home/jovyan/work
       - ./data:/home/jovyan/data
+    environment:
+      - JUPYTER_TOKEN=easy
     networks:
       - n451
 
   adminer:
-    container_name: adminer_451
+    container_name: adminer_app
     image: adminer
     depends_on:
       - db

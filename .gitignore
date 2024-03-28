@@ -129,11 +129,12 @@ dmypy.json
 .pyre/
 
 # ignore the database stuff created by the docker containers
-/data/postgresql
-/data/spark-warehouse
-/data/Open990
-/data/irs990
-/data/vermont
+docker-spark/data/postgresql
+docker-spark/data/spark-warehouse
+docker-spark/scripts/spark-warehouse
+docker-spark/data/Open990
+docker-spark/data/irs990
+docker-spark/data/vermont
 
 # ignore draft folder in scripts
-/scripts/draft
+docker-spark//scripts/draft
