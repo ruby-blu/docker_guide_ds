@@ -37,33 +37,21 @@ Another huge advantage – learning to use Docker will make you a better enginee
 ## Getting started
 
 1. [Install Docker Desktop](https://www.docker.com/get-started) (Windows users will need to [install WSL-2](windows_wsl2.md).)
-2. [Create a Dockerhub account](https://hub.docker.com/signup)
+2. [Create a Dockerhub account](https://hub.docker.com/signup) and verify your email.
+3. Go to your terminal and run the command `docker login`.
 3. [Fork this repo](https://github.com/byuibigdata/docker_guide_streamlit) with the clone your forked version to your desktop.
-4. Within the cloned repository, Open a terminal and switch the working directory to one of the two `docker-` directories. For example, using `cd docker-streamlit` will get you into the correct folder for streamlit.
+4. Within the cloned repository, Open a terminal and switch the working directory to one of the two `docker-` directories. 
+  - For example, using `cd docker-streamlit` will get you into the correct folder for streamlit.
   - The [jupyter/all-spark-notebook](https://hub.docker.com/r/jupyter/all-spark-notebook) could be used by using `cd docker-spark`.
 5. Within the respective `docker-` folder in your terminal you can now run `docker compose up` to take advantage of the `docker-compose.yaml` file within the directory.
 
-
 _Note that the command line versions require that the full local volume path is specified. We will be able to use relative file paths with the yaml._
-
-## Streamlit App
-
-After opening a terminal in the directory `~/docker-streamlit` and running `docker compose up` you should see action in the containers section of Docker and your terminal. 
-
-Now you can open your streamlit app at [http://localhost:8501](http://localhost:8501)
-
-### Developing your App
-
-Microsft's Visual Studio code provides guidance on [developing inside a Container using Visual Studio Code Remote [Development](https://code.visualstudio.com/docs/devcontainers/containers). Let's use their [get started with development Containers in Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/tutorial) tutorial.
-
-Now we can have a VS Code window running on the OS environment within the container. 
 
 ## Spark-Notebook
 
 After opening a terminal in the directory `~/docker-spark` and running `docker compose up` you should see a lot of action in the containers section of Docker and your terminal. 
 
 Now open [http://localhost:8888/lab?token=easy](http://localhost:8888/lab?token=easy). Our token is set to `easy` which is not recommended in development.
-
 
 ### Starting Spark
 
@@ -104,6 +92,34 @@ spark = SparkSession.builder \
 spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")
 ```
 
+### Connecting to an external database
+
+We will use the [PostgreSQL Docker Container](https://hub.docker.com/_/postgres) to create our postgres server and database.  After pulling the container `docker pull postgres` we can get started.
+
+#### Adminer
+
+Docker Hub has an [adminer image](https://hub.docker.com/_/adminer) that we can use.
+
+- System: _PostgreSQL_
+- Server: _name of postgres docker_ (db if using the `docker run` command above)
+- Username: _postgres_
+- Password: _postgres1234_
+- Database: _lego_
+
+The [Postgres sample databases](https://github.com/neondatabase-labs/postgres-sample-dbs/tree/main?tab=readme-ov-file) has some Postgres databases that you could use.  We will use the [Lego example](https://github.com/neondatabase-labs/postgres-sample-dbs/tree/main?tab=readme-ov-file#lego-database). The `lego.sql` file is already in the `scratch` folder.
+
+
+## Streamlit App
+
+After opening a terminal in the directory `~/docker-streamlit` and running `docker compose up` you should see action in the containers section of Docker and your terminal. 
+
+Now you can open your streamlit app at [http://localhost:8501](http://localhost:8501)
+
+### Developing your App
+
+Microsft's Visual Studio code provides guidance on [developing inside a Container using Visual Studio Code Remote [Development](https://code.visualstudio.com/docs/devcontainers/containers). Let's use their [get started with development Containers in Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/tutorial) tutorial.
+
+Now we can have a VS Code window running on the OS environment within the container. 
 
 ## References
 

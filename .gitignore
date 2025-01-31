@@ -138,3 +138,5 @@ docker-spark/data/vermont
 
 # ignore draft folder in scripts
 docker-spark//scripts/draft
+docker-spark/.DS_Store
+docker-spark/data/.DS_Store

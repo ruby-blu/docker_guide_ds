@@ -1,1 +1,0 @@
-A general folder that is connected to the db and spark containers.
