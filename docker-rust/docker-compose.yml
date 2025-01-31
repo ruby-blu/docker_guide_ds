@@ -1,0 +1,7 @@
+services:
+  jupyter:
+    build: .
+    volumes:
+    - ./notebooks:/opt/notebooks
+    ports: 
+    - 8888:8888
